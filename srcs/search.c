@@ -6,11 +6,11 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 10:51:18 by tpitout           #+#    #+#             */
-/*   Updated: 2018/08/31 10:51:19 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/08/31 12:43:04 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-u#include "lem_in.h"
+#include "lem_in.h"
 
 int		ft_is_in_list(char *node, char *list)
 {
