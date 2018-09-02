@@ -6,7 +6,7 @@
 #    By: tpitout <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/31 10:49:42 by tpitout           #+#    #+#              #
-#    Updated: 2018/08/31 11:04:46 by tpitout          ###   ########.fr        #
+#    Updated: 2018/09/02 15:40:46 by tpitout          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@ LEM = lem-in
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = srcs/crawl.c srcs/error.c srcs/init.c srcs/move.c \
+SRCS = srcs/push.c srcs/error.c srcs/init.c srcs/move.c \
 srcs/read.c srcs/search.c srcs/viz.c
 
-OBJS = crawl.o error.o init.o move.o read.o search.o viz.o
+OBJS = push.o error.o init.o move.o read.o search.o viz.o
 
 HEADERS = -I libft/includes -I includes/
 

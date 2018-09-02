@@ -6,7 +6,7 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 10:51:44 by tpitout           #+#    #+#             */
-/*   Updated: 2018/08/31 10:51:45 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/02 15:43:38 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	ft_lem_in(t_lem_in *lem)
 	if (is_error(lem))
 		exit(0);
 	ft_convert_links(lem);
-	crawl(lem);
+	push(lem);
 	if (!lem->lst)
 	{
-		ft_putstr("Error : No valid solution\n");
+		ft_putstr(BOLDRED "Error : No valid solution\n");
 		exit(0);
 	}
 	sort_rooms(lem);
@@ -30,7 +30,7 @@ void	ft_lem_in(t_lem_in *lem)
 	{
 		newterm(NULL, stderr, stdin);
 		viz(lem);
-		endwin();
+//		endwin();
 	}
 	else
 	{
