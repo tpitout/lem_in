@@ -6,7 +6,7 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 15:38:08 by tpitout           #+#    #+#             */
-/*   Updated: 2018/09/02 15:38:10 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/03 11:19:20 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int		push_right(t_lem_in *lem, char *lst, int y, int x)
 	if (lem->map[y][x] == 1)
 	{
 		lem->map[y][x] = 9;
-		crawl_right(lem, lst, y, x + 1);
+		push_right(lem, lst, y, x + 1);
 		lst = add_room(lem, lst, x);
-		crawl_up(lem, lst, y - 1, x);
-		crawl_down(lem, lst, y + 1, x);
+		push_up(lem, lst, y - 1, x);
+		push_down(lem, lst, y + 1, x);
 	}
 	else if (lem->map[y][x] == 9)
 		return (0);

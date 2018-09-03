@@ -6,7 +6,7 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 10:50:52 by tpitout           #+#    #+#             */
-/*   Updated: 2018/08/31 10:50:53 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/03 14:42:24 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	move_rec_2(t_lem_in *lem, int ant, int rm, int count)
 	lem->rm[lem->rmf[rm]].size++;
 	if (rm == lem->len - 1)
 	{
-		print_ants(lem, ant + (count - ant), rm);
+		print_ants(lem, ant + (count - ant), rm, lem->viz);
 		move_rec(lem, ant + (count - ant) + 1, rm - 1, count + 1);
 	}
 	else
 	{
-		print_ants(lem, ant, rm);
+		print_ants(lem, ant, rm, lem->viz);
 		move_rec(lem, ant + 1, rm - 1, count);
 	}
 }
@@ -49,12 +49,24 @@ int		move_rec(t_lem_in *lem, int ant, int rm, int count)
 	return (0);
 }
 
-void	print_ants(t_lem_in *lem, int ant, int rm)
+void	print_ants(t_lem_in *lem, int ant, int rm, int viz)
 {
-	write(1, "L", 1);
-	ft_putnbr(ant);
-	write(1, "-", 1);
-	ft_putstr(lem->rm[lem->rmf[rm]].name);
+	if (viz)
+	{
+		ft_putstr(BOLDCYAN "L");
+		ft_putnbr(ant);
+		ft_putstr("-" RESET);
+		ft_putstr(BOLDRED);
+		ft_putstr(lem->rm[lem->rmf[rm]].name);
+		ft_putstr(RESET);
+	}
+	else
+	{
+		ft_putstr("L");
+		ft_putnbr(ant);
+		write(1, "-", 1);
+		ft_putstr(lem->rm[lem->rmf[rm]].name);
+	}
 	if (ft_strcmp(lem->rm[lem->rmf[rm]].name, lem->rm[lem->end].name)
 		&& (ant != lem->ants))
 		write(1, " ", 1);
@@ -63,11 +75,12 @@ void	print_ants(t_lem_in *lem, int ant, int rm)
 		write(1, " ", 1);
 }
 
-void	move_ants(t_lem_in *lem)
+void	move_ants(t_lem_in *lem, int v)
 {
 	lem->rm[lem->rmf[0]].size = lem->ants;
 	move_rec(lem, 1, lem->len - 1, 1);
-	write(1, "\n", 1);
+	if (!v)
+		write(1, "\n", 1);
 }
 
 void	sort_rooms(t_lem_in *lem)

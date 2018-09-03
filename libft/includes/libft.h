@@ -6,7 +6,7 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 19:57:07 by tpitout           #+#    #+#             */
-/*   Updated: 2018/08/13 13:03:37 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/03 13:52:16 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 # define BLUE		"\033[34m"
 # define WHITE		"\033[37m"
 # define RESET		"\033[0m"
+# define BOLDRED	"\033[1m\033[31m"
+# define BOLDGREEN	"\033[1m\033[32m"
+# define BOLDCYAN	"\033[1m\033[36m"
 # define CLEAN		"\e[1;1H\e[5J"
 
 typedef struct		s_list

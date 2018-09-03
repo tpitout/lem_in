@@ -6,13 +6,13 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 10:51:44 by tpitout           #+#    #+#             */
-/*   Updated: 2018/09/02 15:43:38 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/03 14:41:40 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	ft_lem_in(t_lem_in *lem)
+void			ft_lem_in(t_lem_in *lem)
 {
 	ft_read(lem);
 	ft_store(lem);
@@ -22,27 +22,26 @@ void	ft_lem_in(t_lem_in *lem)
 	push(lem);
 	if (!lem->lst)
 	{
-		ft_putstr(BOLDRED "Error : No valid solution\n");
+		ft_putstr(BOLDRED "Error : No solution\n");
 		exit(0);
 	}
 	sort_rooms(lem);
 	if (lem->viz)
 	{
-		newterm(NULL, stderr, stdin);
 		viz(lem);
-//		endwin();
+		move_ants(lem, lem->viz);
 	}
 	else
 	{
 		ft_print_links(lem);
 		write(1, "\n", 1);
-		move_ants(lem);
+		move_ants(lem, lem->viz);
 	}
 }
 
-void	ft_free(t_lem_in *lem)
+void			ft_free(t_lem_in *lem)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	free(lem->data);
@@ -68,13 +67,19 @@ void	ft_free(t_lem_in *lem)
 	free(lem->rmf);
 }
 
-int		main(void)
+int				main(void)
 {
 	t_lem_in	*lem;
 
 	lem = init_struct();
 	ft_lem_in(lem);
 	ft_free(lem);
+	if (lem->viz)
+	{
+		ft_putstr(BOLDGREEN "\n\n==============================\n");
+		ft_putstr(BOLDGREEN "           DONE!           \n");
+		ft_putstr(BOLDGREEN "==============================\n");
+	}
 	free(lem);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 10:51:18 by tpitout           #+#    #+#             */
-/*   Updated: 2018/08/31 12:43:04 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/03 11:39:40 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ char	*add_room(t_lem_in *lem, char *lst, int rm)
 		free(s);
 		if (rm == lem->rooms - 1)
 		{
-			if (crawl_count(lst) < lem->len)
+			if (push_count(lst) < lem->len)
 			{
-				lem->len = crawl_count(lst);
+				lem->len = push_count(lst);
 				free(lem->lst);
 				lem->lst = ft_strdup(lst);
 			}
@@ -71,7 +71,7 @@ char	*add_room(t_lem_in *lem, char *lst, int rm)
 	return (lst);
 }
 
-int		crawl_count(char *lst)
+int		push_count(char *lst)
 {
 	char	**str;
 	int		len;

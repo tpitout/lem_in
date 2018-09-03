@@ -6,7 +6,7 @@
 /*   By: tpitout <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 10:52:05 by tpitout           #+#    #+#             */
-/*   Updated: 2018/08/31 10:52:21 by tpitout          ###   ########.fr       */
+/*   Updated: 2018/09/03 14:09:52 by tpitout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_store(t_lem_in *lem)
 	{
 		if (!ft_strcmp(lem->data[i], "##start"))
 			lem->start = lem->rooms;
-		else if (!ft_strcmp(lem->data[i], "##viz"))
+		else if (!ft_strcmp(lem->data[i], "##visual"))
 			lem->viz = 1;
 		else if (!ft_strcmp(lem->data[i], "##end"))
 			lem->end = lem->rooms;
