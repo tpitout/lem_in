@@ -15,3 +15,6 @@ Lem-in is an algorithm project, where ants have to go the fastest as posible fro
 >maps contains all the maps <br>
 
 ![lem-in](https://github.com/tpitout/lem_in/blob/master/LEM-IN.png)
+<br>
+**SCORE** <br>
+![lem-in](https://github.com/tpitout/lem_in/blob/master/lem_score.png)
